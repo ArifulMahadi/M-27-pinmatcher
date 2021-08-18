@@ -17,7 +17,7 @@ document.getElementById('key-pad').addEventListener('click', function(event){
     const number = event.target.innerText;
     const calcInput = document.getElementById('typed-numbers')
     if (isNaN(number)){
-        console.log(number)
+        // console.log(number)
         if(number=='C'){
             calcInput.value= '';
         }
@@ -29,4 +29,19 @@ document.getElementById('key-pad').addEventListener('click', function(event){
     calcInput.value = newCalc;
     }
     
-})
+});
+function verifyPin(){
+    const pin = document.getElementById('display-pin').value;
+    const typedNumbers = document.getElementById('typed-numbers').value;
+    const successMessage = document.getElementById('notify-success')
+    const failText = document.getElementById("notify-fail")
+  
+    if(pin == typedNumbers){
+        failText.style.display = 'none'
+        successMessage.style.display = 'block';
+    }
+    else{
+        successMessage.style.display = 'none';
+        failText.style.display = 'block'
+    }
+}
